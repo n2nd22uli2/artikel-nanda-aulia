@@ -101,4 +101,5 @@ Proyek ini dilisensikan di bawah [MIT License]
 
 ## Pembuat
 
-Nanda Aulia - [nandaaulia1004@gmail.com] - [(https://github.com/n2nd22uli2)]
+Nanda Aulia 230605110014 - [nandaaulia1004@gmail.com] - [(https://github.com/n2nd22uli2)]
+Pemrograman Web (A)
