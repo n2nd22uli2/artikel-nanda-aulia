@@ -1,0 +1,302 @@
+/* Register Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  :root {
+    --primary: #6c63ff;
+    --primary-dark: #4b45b3;
+    --secondary: #00d9ff;
+    --dark: #1a1a2e;
+    --light: #f6f8ff;
+    --gray: #8b8b9c;
+    --light-gray: #e6e8f0;
+    --success: #2ecc71;
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --card-shadow: 0 10px 20px rgba(108, 99, 255, 0.1);
+  }
+  
+  body {
+    background-color: var(--light);
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(108, 99, 255, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 75% 75%, rgba(0, 217, 255, 0.1) 0%, transparent 40%);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark);
+    line-height: 1.6;
+    padding: 2rem 0;
+  }
+  
+  .auth-container {
+    width: 90%;
+    max-width: 480px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--gradient);
+  }
+  
+  .auth-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .auth-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient);
+  }
+  
+  .error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #e62e2e;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+    border-left: 4px solid #e62e2e;
+    animation: shake 0.5s ease;
+  }
+  
+  .success-message {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: var(--success);
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+    border-left: 4px solid var(--success);
+    animation: pulse 1.5s ease infinite;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: white;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+  }
+  
+  .btn-primary {
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+  }
+  
+  .auth-link {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--gray);
+  }
+  
+  .auth-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .auth-link a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+  
+  /* Password strength indicator (optional) */
+  .password-strength {
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 4px;
+    background-color: var(--light-gray);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .password-strength::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .weak::before {
+    width: 33%;
+    background-color: #ff4757;
+  }
+  
+  .medium::before {
+    width: 66%;
+    background-color: #ffa502;
+  }
+  
+  .strong::before {
+    width: 100%;
+    background-color: var(--success);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .auth-container {
+      padding: 2rem 1.5rem;
+      width: 95%;
+    }
+  }
+  
+  /* Custom styling for password requirements (optional) */
+  .password-requirements {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+  
+  .requirement {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.2rem;
+  }
+  
+  .requirement::before {
+    content: '•';
+    margin-right: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .requirement.met {
+    color: var(--success);
+  }
+  
+  .requirement.met::before {
+    content: '✓';
+  }
+  
+  /* Tooltip for input fields (optional) */
+  .form-group {
+    position: relative;
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: -35px;
+    right: 0;
+    background-color: var(--dark);
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(10px);
+    z-index: 10;
+  }
+  
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--dark);
+  }
+  
+  .form-group input:focus ~ .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
